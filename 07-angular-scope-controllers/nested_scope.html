@@ -1,0 +1,36 @@
+<!doctype html>
+<html ng-app="myApp">
+<head>
+  <title></title>
+</head>
+<body ng-controller="bodyController">
+
+  <h3>In the Body</h3>
+  <p>{{title}}</p>
+
+  <input type="text" ng-model="title">
+
+  <div ng-controller="headerController">
+    <h3>Nested in the Header</h3>
+    <p>{{title}}</p>
+
+    <input type="text" ng-model="title">
+  </div>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.11/angular.min.js"></script>
+  <script type="text/javascript">
+    // define the module: don't forget the dependencies array!
+    angular.module('myApp', []);
+
+    // get the module and define the body controller
+    angular.module('myApp').controller('bodyController', function($scope) {
+      // set up the scope
+      $scope.title = 'From the body controller';
+    });
+
+    // get the module and define the header controller
+    angular.module('myApp').controller('headerController', function($scope) {
+      // no scope set up
+    });
+  </script>
+</body>
