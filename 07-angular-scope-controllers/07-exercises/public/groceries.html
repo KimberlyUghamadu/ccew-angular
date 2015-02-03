@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="myApp">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,13 +17,40 @@
     <![endif]-->
 
   </head>
-  <body>
+  <body ng-controller="groceryController">
 
-    <div class="container">
+    <div class="col-md-6">
       <h1>Grocery List</h1>
 
-      <!-- YOUR CODE HERE -->
+      <form class="form-horizontal">
 
+        <div class="form-group">
+          <div class="col-sm-10">
+            <input type="text" ng-model="grocery1">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-sm-10">
+            <input type="text" ng-model="grocery2">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-sm-10">
+            <input type="text" ng-model="grocery3">
+          </div>
+        </div>
+        
+      </form>
+
+    </div>
+    <div class="col-md-6">
+      <ul>
+        <li ng-bind="grocery1">{{grocery1}}</li>
+        <li ng-bind="grocery2">{{grocery2}}</li>
+        <li ng-bind="grocery3">{{grocery3}}</li>
+      </ul>
     </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -35,9 +62,17 @@
     <!-- Angular -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.28/angular.min.js"></script>
 
-    <!-- YOUR JAVASCRIPT HERE -->
-
     <script type="text/javascript">
+
+    <!-- YOUR JAVASCRIPT HERE -->
+    angular.module('myApp', []);
+    angular.module('myApp').controller('groceryController', function($scope) {
+        // Set up scope
+        var groceryArray = [$scope.grocery1, $scope.grocery2, $scope.grocery3];
+        console.log(groceryArray);
+    });
+
+
 
     </script>
     

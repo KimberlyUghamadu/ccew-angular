@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="myApp">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,12 +17,18 @@
     <![endif]-->
 
   </head>
-  <body>
+  <body ng-controller="tax">
 
     <div class="container">
       <h1>Total</h1>
 
+      <form ng-submit="submit()">
+      <label>Enter the Amount: </label>
+      <input type="number" ng-model="price" value="$" />
+      <input type="submit" value="Submit" />
       <!-- YOUR CODE HERE -->
+      <p>${{finalPrice | number:2}}</p>
+      </form>
 
     </div>
 
@@ -38,6 +44,15 @@
     <!-- YOUR JAVASCRIPT HERE -->
 
     <script type="text/javascript">
+
+      angular.module('myApp', []);
+
+      angular.module('myApp').controller('tax', function($scope) {
+        
+        $scope.submit = function() {
+          $scope.finalPrice = $scope.price * 1.073;
+        };
+      });
 
     </script>
     

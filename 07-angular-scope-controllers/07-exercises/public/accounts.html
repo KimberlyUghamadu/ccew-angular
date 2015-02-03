@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="myApp">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,10 +19,11 @@
   </head>
   <body>
 
-    <div class="container">
+    <div class="container" ng-controller="tableController">
       <h1>Accounts</h1>
 
       <!-- YOUR HTML HERE -->
+      <p ng-repeat="person in people">Name: {{person.name}} Admin: {{person.admin}}</p>
 
     </div>
 
@@ -38,6 +39,13 @@
     <!-- YOUR JAVASCRIPT HERE -->
 
     <script type="text/javascript">
+
+    angular.module('myApp', []);
+
+    angular.module("myApp").controller("tableController", function($scope) {
+        $scope.people = [ { name: "Philip Dow", admin: true }, { name: "Melinda Gates", admin: true }, { name: "Marcus Aurelius", admin: false } ];
+
+    });
 
     </script>
     
